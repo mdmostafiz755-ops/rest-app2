@@ -13,7 +13,7 @@ app.set('view engine','ejs')
 
 //comment array
 
-const comments=[
+let comments=[
     {
         id:uuid(),
         username: 'jhon Doe',
@@ -60,6 +60,11 @@ app.get('/comments/:id/edit',(req,res)=>{
     const{id}=req.params
     const comment=comments.find(c=>c.id===id)
     res.render('comments/edit',{comment})
+})
+app.delete('/comments/:id',(req,res)=>{
+    const{id}=req.params
+    comments=comments.filter(c=>c.id!==id)
+    res.redirect('/comments')
 })
 
 app.listen(4000,()=>{

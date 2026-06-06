@@ -8,6 +8,9 @@
 <body>
     <h1>Comment id:<%= comment.id %></h1>
     <p>Comment - <b><%= comment.comment %></b></p>
+    <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
+        <button>Delete</button>
+    </form>
     <a href="/comments">Back to Comment</a>
 </body>
 </html>
